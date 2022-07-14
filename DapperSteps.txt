@@ -1,0 +1,27 @@
+1.dotnet new webapi -o Dapper
+2.dotnet add package Dapper
+2.1.dotnet add package System.Data.SqlClient
+3.Create Models->Employee.cs
+4.Create Repository folder
+5.IEmployeeRepository.cs where we will implement TPL
+6.EmployeeRepository.cs
+7.Here we need to use IConfiguration which helps to retrieve Connection String......using Microsoft.Extensions.Configuration;
+8.Create a property of IDbConnection which describes the connection string just like web.config.....using System.Data;
+
+Create Proc [dbo].[GetEmployeeById]
+@Id int
+As
+	Begin
+		Select * from employee where ID=@Id
+	End
+
+----------------------------------------------------
+Create Proc [dbo].[GetAllEmployees]
+As
+	Begin
+		Select * from employee
+	End
+
+
+
+ 
